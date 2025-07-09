@@ -1,0 +1,39 @@
+<section id="talleres" class="py-16 bg-[#181C23]">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-8 text-center text-white">Nuestros talleres de prevención</h2>
+    <div class="w-full max-w-6xl mx-auto flex flex-col gap-6 mb-12">
+      <!-- Carrusel de imágenes -->
+      <div class="relative w-full flex items-center justify-center">
+        <button (click)="prevImage()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#232834] bg-opacity-90 rounded-full p-2 text-white hover:bg-[#EEA542] transition-colors z-10 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#EEA542" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <div class="flex w-full justify-center items-center gap-4 overflow-x-hidden select-none">
+          <img
+            *ngFor="let img of visibleImages; index as i"
+            [src]="img.src"
+            [alt]="img.alt"
+            [ngClass]="img.partial ? 'opacity-40 scale-90 blur-[2px]' : 'opacity-100 scale-100 shadow-lg'"
+            class="rounded-lg object-cover border border-[#EEA542] bg-[#232834] transition-all duration-500 w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56"
+          />
+        </div>
+        <button (click)="nextImage()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#232834] bg-opacity-90 rounded-full p-2 text-white hover:bg-[#EEA542] transition-colors z-10 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#EEA542" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+      <!-- Indicadores del carrusel -->
+      <div class="flex justify-center mt-6 gap-2">
+        <button *ngFor="let _ of carouselIndicators; let i = index"
+          (click)="goToImage(i * 4)"
+          [ngClass]="currentImage >= i * 4 && currentImage < (i + 1) * 4 ? 'bg-white' : 'bg-gray-600'"
+          class="w-2 h-2 rounded-full transition-colors"></button>
+      </div>
+    </div>
+    <!-- Ciudades visitadas -->
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h3 class="text-xl font-semibold mb-8 text-white">Ciudades que hemos visitado</h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span *ngFor="let city of cities" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">{{ city }}</span>
+      </div>
+    </div>
+  </div>
+</section>
