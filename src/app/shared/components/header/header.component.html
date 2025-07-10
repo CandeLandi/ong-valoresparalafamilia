@@ -29,18 +29,23 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div *ngIf="mobileMenuOpen" class="lg:hidden border-t border-gray-800 bg-gray-900/95 backdrop-blur-md">
-      <nav class="flex flex-col space-y-1 px-4 py-4">
-        <a href="#inicio" (click)="scrollToSection('inicio', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Inicio</a>
-        <a href="#historia" (click)="scrollToSection('historia', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Nuestra Historia</a>
-        <a href="#prevencion" (click)="scrollToSection('prevencion', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Prevención</a>
-        <a href="#valores" (click)="scrollToSection('valores', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Valores</a>
-        <a href="#talleres" (click)="scrollToSection('talleres', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Talleres</a>
-        <a href="#principios" (click)="scrollToSection('principios', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Claves</a>
-        <a href="#donar" (click)="scrollToSection('donar', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Donar</a>
-        <a href="#contacto" (click)="scrollToSection('contacto', $event); closeMobileMenu()" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors py-2">Contacto</a>
-        <a href="https://wa.me/5492261400040" target="_blank" rel="noopener" class="sm:hidden bg-[#EE5420] hover:bg-[#EE5420]/90 text-sm mt-2 text-white rounded-lg py-2">Donar Ahora</a>
-      </nav>
+    <div *ngIf="mobileMenuOpen" class="lg:hidden fixed inset-0 z-50 flex items-start justify-center bg-black/60">
+      <div class="mt-6 w-[90vw] max-w-xs rounded-2xl shadow-2xl bg-gray-900/95 border border-gray-800 backdrop-blur-md p-5 relative">
+        <button (click)="closeMobileMenu()" class="absolute top-3 right-3 h-10 w-10 flex items-center justify-center rounded-full border-2 border-[#EE5420] bg-black/80 text-white hover:bg-[#EE5420] hover:text-white transition-colors shadow-lg">
+          <i-lucide name="x" class="h-6 w-6"></i-lucide>
+        </button>
+        <nav class="flex flex-col space-y-2 mt-8">
+          <a href="#inicio" (click)="scrollToSection('inicio', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Inicio</a>
+          <a href="#historia" (click)="scrollToSection('historia', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Nuestra Historia</a>
+          <a href="#prevencion" (click)="scrollToSection('prevencion', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Prevención</a>
+          <a href="#valores" (click)="scrollToSection('valores', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Valores</a>
+          <a href="#talleres" (click)="scrollToSection('talleres', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Talleres</a>
+          <a href="#principios" (click)="scrollToSection('principios', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Claves</a>
+          <a href="#donar" (click)="scrollToSection('donar', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Donar</a>
+          <a href="#contacto" (click)="scrollToSection('contacto', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Contacto</a>
+          <a href="https://wa.me/5492261400040" target="_blank" rel="noopener" class="sm:hidden bg-[#EE5420] hover:bg-[#EE5420]/90 text-base mt-4 text-white rounded-xl py-3 px-3 font-bold shadow-lg">Donar Ahora</a>
+        </nav>
+      </div>
     </div>
   </div>
 </header>
