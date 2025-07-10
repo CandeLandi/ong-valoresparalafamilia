@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular project
-        run: npx ng build --output-path docs --base-href ./
+        run: npx ng build --output-path docs --base-href /ong-valoresparalafamilia/
 
       - name: Add CNAME if exists
         run: |
