@@ -7,7 +7,6 @@ import { fadeInSide } from '../../animations/fade-in-side.animation';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
   animations: [fadeInSide]
 })
 export class HeroComponent {
