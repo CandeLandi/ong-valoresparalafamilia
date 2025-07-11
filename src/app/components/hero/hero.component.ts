@@ -11,7 +11,7 @@ import { fadeInSide } from '../../animations/fade-in-side.animation';
     .hero-bg {
       position: relative;
       min-height: 100vh;
-      background: url('/assets/images/home/hero-child.jpg') center/cover no-repeat;
+      background: url('assets/images/home/hero-child.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
