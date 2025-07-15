@@ -34,5 +34,5 @@ import { FooterSectionComponent } from './components/footer-section/footer-secti
   styleUrls: []
 })
 export class AppComponent {
-  title = 'valoresparalafamilia-ong';
+  title = 'ONG Valores para la Familia - Prevención de Abuso Sexual Infantil';
 }

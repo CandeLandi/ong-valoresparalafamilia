@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:netlify": "ng build",
+    "build:prod": "ng build --configuration production",
     "deploy:ghpages": "rm -rf docs/ && ng build && npx angular-cli-ghpages --dir=docs --base-href=/"
   },
   "private": true,

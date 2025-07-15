@@ -1,59 +1,80 @@
-# ValoresparalafamiliaOng
+# ONG Valores para la Familia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Sitio web oficial de la ONG Valores para la Familia, organización sin fines de lucro dedicada a la **prevención del abuso sexual infantil** a través de talleres educativos, campañas de concientización y programas de formación.
 
-## Development server
+## 🎯 Nuestra Misión
 
-To start a local development server, run:
+Trabajamos para crear entornos seguros para todos los niños, brindando herramientas de prevención y educación tanto a menores como a adultos. Nuestro lema es **"¡No te calles, contalo!"** y nuestro enfoque es **"educar sin espantar"**.
 
+## 🚀 Tecnologías
+
+- **Frontend:** Angular 19
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide Angular
+- **Deploy:** Netlify
+- **Domain:** valoresparalafamilia.com
+
+## 📋 Servicios
+
+- **Talleres de Prevención:** Para niños y adultos
+- **Campañas de Concientización:** Material educativo especializado
+- **Capacitación:** Formación de educadores y facilitadores
+- **Recursos Educativos:** Materiales apropiados para cada edad
+
+## 🛠️ Desarrollo
+
+### Instalación
+```bash
+npm install
+```
+
+### Servidor de desarrollo
 ```bash
 ng serve
 ```
+Navega a `http://localhost:4200/`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Build para producción
 ```bash
-ng generate component component-name
+npm run build:prod
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### Deploy en Netlify
 ```bash
-ng generate --help
+npm run build:netlify
 ```
+Luego arrastra la carpeta `dist/` a Netlify.
 
-## Building
+## 📱 SEO Optimizado
 
-To build the project run:
+- Meta tags completos para redes sociales
+- Open Graph y Twitter Cards
+- Structured Data (JSON-LD)
+- Sitemap.xml automático
+- Robots.txt configurado
+- Canonical URLs
 
-```bash
-ng build
-```
+## 🌐 Dominio y Hosting
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Dominio:** valoresparalafamilia.com
+- **Hosting:** Netlify
+- **SSL:** Automático
+- **CDN:** Global
 
-## Running unit tests
+## 📞 Contacto
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **WhatsApp:** +54 9 2261 400040
+- **Email:** info@valoresparalafamilia.com
+- **Instagram:** @valoresparalafamilia
+- **Facebook:** @valoresparalafamilia
 
-```bash
-ng test
-```
+## 🤝 Cómo Ayudar
 
-## Running end-to-end tests
+- **Donaciones:** Apoya nuestros programas
+- **Voluntariado:** Únete a nuestra causa
+- **Difusión:** Comparte nuestro mensaje
+- **Talleres:** Solicita capacitación para tu institución
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**ONG Valores para la Familia** - Protegiendo el futuro de nuestros niños
