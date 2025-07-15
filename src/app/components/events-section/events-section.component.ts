@@ -27,7 +27,6 @@ export class EventsSectionComponent implements OnInit, OnDestroy {
 
   galleryImages = [
     { src: 'assets/images/talleres/campana.jpeg', alt: 'Campaña de prevención' },
-    { src: 'assets/images/talleres/campana2.jpeg', alt: 'Campaña de prevención 2' },
     { src: 'assets/images/talleres/conferencia.jpeg', alt: 'Conferencia' },
     { src: 'assets/images/talleres/ninos.jpeg', alt: 'Taller con niños' },
     { src: 'assets/images/talleres/reunion.jpeg', alt: 'Reunión de equipo' },

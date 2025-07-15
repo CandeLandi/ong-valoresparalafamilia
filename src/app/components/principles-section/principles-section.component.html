@@ -7,22 +7,22 @@
 >
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8">Claves para el cuidado y la protección</h2>
-    <p class="text-base sm:text-lg text-gray-300 mb-8 text-center">Pasos fundamentales para el cuidado y la prevención en familia</p>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8" @fadeInUp appInView>Claves para el cuidado y la protección</h2>
+    <p class="text-base sm:text-lg text-gray-300 mb-8 text-center" @fadeInUp appInView>Pasos fundamentales para el cuidado y la prevención en familia</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-      <div *ngFor="let item of principles" class="bg-[#232834] px-6 py-8 flex flex-col items-center justify-center rounded-md border border-gray-700 shadow-sm hover:shadow-lg hover:border-[#EEA542] transition-all cursor-pointer group">
-        <i-lucide [name]="item.icon" class="h-8 w-8 mb-4 text-[#EEA542] group-hover:text-[#EEA542] transition-colors"></i-lucide>
-        <span class="font-semibold text-white text-center text-base group-hover:text-[#EEA542] transition-colors">{{ item.title }}</span>
+      <div *ngFor="let item of principles; let i = index" class="bg-[#232834] px-6 py-8 flex flex-col items-center justify-center rounded-md border border-gray-700 shadow-sm hover:shadow-lg hover:border-[#EEA542] transition-all cursor-pointer group" @fadeInUp appInView [style.animation-delay]="i * 50 + 'ms'">
+        <i-lucide [name]="item.icon" class="h-8 w-8 mb-4 text-[#EEA542] group-hover:text-[#EEA542] transition-colors" @scaleIn appInView></i-lucide>
+        <span class="font-semibold text-white text-center text-base group-hover:text-[#EEA542] transition-colors" @fadeInUp appInView>{{ item.title }}</span>
       </div>
     </div>
-    <div class="max-w-4xl mx-auto mt-6">
-      <div class="bg-[#232834] p-8 rounded-2xl border border-gray-700 shadow-xl">
+    <div class="max-w-4xl mx-auto mt-6" @fadeInUp appInView>
+      <div class="bg-[#232834] p-8 rounded-2xl border border-gray-700 shadow-xl" @scaleIn appInView>
         <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-[#EEA542]/20 rounded-full mb-6">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-[#EEA542]/20 rounded-full mb-6" @scaleIn appInView>
             <i-lucide name="heart" class="h-8 w-8 text-[#EEA542]"></i-lucide>
           </div>
-          <p class="text-gray-300 text-lg leading-relaxed">
+          <p class="text-gray-300 text-lg leading-relaxed" @fadeInUp appInView>
             Nuestro enfoque se basa en brindar herramientas de forma lúdica y apropiada para cada edad, creando un ambiente de confianza donde los niños puedan aprender a protegerse sin generar miedo o ansiedad.
           </p>
         </div>

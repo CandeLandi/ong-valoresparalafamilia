@@ -1,63 +1,76 @@
-<section id="contacto" class="mx-auto bg-[#181C23]">
+<section id="contacto" class="mx-auto bg-[#181C23] py-16 sm:py-20 lg:py-24">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start justify-center">
-      <!-- Columna izquierda: Información de contacto -->
-      <div class="flex-1 max-w-lg mx-auto text-center">
-<!--         <h2 class="text-3xl font-bold mb-8 text-white">CONTACTO</h2>
- -->        <div class="mb-8">
-          <h3 class="text-xl font-bold mb-4 text-[#EEA542]">Información de Contacto</h3>
+    <!-- Título principal y redes sociales al comienzo -->
+    <div class="text-center mb-12" @fadeInUp appInView>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">Contacto</h2>
+      <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Estamos aquí para ayudarte. Contáctanos para más información sobre nuestros talleres y programas de prevención.</p>
+
+      <!-- Redes sociales -->
+      <div @fadeInUp appInView>
+        <h3 class="text-xl font-bold mb-4 text-[#EEA542]">Seguinos en nuestras redes</h3>
+        <div class="flex flex-row gap-4 items-center justify-center">
+          <a href="https://www.facebook.com/profile.php?id=100065310617288" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2" @scaleIn appInView>
+            <i-lucide name="facebook" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
+          </a>
+          <a href="https://instagram.com/valoresparalafamilia" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2" @scaleIn appInView>
+            <i-lucide name="instagram" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
+          </a>
+          <span class="ml-2 bg-[#232834] text-[#53B8B0] px-4 py-2 rounded-full font-semibold text-xs sm:text-sm" @scaleIn appInView>&#64;valoresparalafamilia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+      <div class="flex-1 max-w-lg text-center" @fadeInSide appInView>
+        <div class="mb-8">
+          <h3 class="text-xl font-bold mb-6 text-[#EEA542]" @fadeInUp appInView>Información de Contacto</h3>
           <ul class="space-y-4">
-            <li class="flex flex-col sm:flex-row items-center gap-3 justify-center">
-              <i-lucide name="phone" class="w-5 h-5 text-[#EEA542]"></i-lucide>
-              <span class="font-bold text-white text-sm sm:text-base">Teléfono</span>
-              <span class="text-gray-300 ml-2 text-xs sm:text-sm">+549 2261400040</span>
+            <li class="flex flex-col items-start gap-2" @fadeInUp appInView>
+              <div class="flex items-center gap-3">
+                <i-lucide name="phone" class="w-5 h-5 text-[#EEA542]"></i-lucide>
+                <span class="font-bold text-white text-sm sm:text-base">Teléfono</span>
+              </div>
+              <span class="text-gray-300 text-xs sm:text-sm ml-8">+549 2261400040</span>
             </li>
-            <li class="flex flex-col sm:flex-row items-center gap-3 justify-center">
-              <i-lucide name="mail" class="w-5 h-5 text-[#EEA542]"></i-lucide>
-              <span class="font-bold text-white text-sm sm:text-base">Email</span>
-              <span class="text-gray-300 ml-2 text-xs sm:text-sm">valoresparalafamilia.ong&#64;gmail.com</span>
+            <li class="flex flex-col items-start gap-2" @fadeInUp appInView>
+              <div class="flex items-center gap-3">
+                <i-lucide name="mail" class="w-5 h-5 text-[#EEA542]"></i-lucide>
+                <span class="font-bold text-white text-sm sm:text-base">Email</span>
+              </div>
+              <span class="text-gray-300 text-xs sm:text-sm ml-8">valoresparalafamilia.ong&#64;gmail.com</span>
             </li>
-            <li class="flex flex-col sm:flex-row items-center gap-3 justify-center">
-              <i-lucide name="map-pin" class="w-5 h-5 text-[#EEA542]"></i-lucide>
-              <span class="font-bold text-white text-sm sm:text-base">Dirección</span>
-              <span class="text-gray-300 ml-2 text-xs sm:text-sm">Loberia, Bs As</span>
+            <li class="flex flex-col items-start gap-2" @fadeInUp appInView>
+              <div class="flex items-center gap-3">
+                <i-lucide name="map-pin" class="w-5 h-5 text-[#EEA542]"></i-lucide>
+                <span class="font-bold text-white text-sm sm:text-base">Dirección</span>
+              </div>
+              <span class="text-gray-300 text-xs sm:text-sm ml-8">Loberia, Bs As</span>
             </li>
           </ul>
         </div>
-        <div>
-          <h3 class="text-xl font-bold mb-4 text-[#EEA542]">Síguenos</h3>
-          <div class="flex flex-row gap-4 items-center justify-center">
-            <a href="https://www.facebook.com/profile.php?id=100065310617288" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2">
-              <i-lucide name="facebook" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
-            </a>
-            <a href="https://instagram.com/valoresparalafamilia" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2">
-              <i-lucide name="instagram" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
-            </a>
-            <span class="ml-2 bg-[#232834] text-[#53B8B0] px-4 py-2 rounded-full font-semibold text-xs sm:text-sm">&#64;valoresparalafamilia</span>
-          </div>
-        </div>
       </div>
 
-      <div class="flex-1 max-w-xl mb-10">
-        <div class="bg-[#232d3b] rounded-xl p-8 shadow-lg border border-gray-700">
-          <h3 class="text-2xl font-bold mb-4 text-white">Solicita un Taller</h3>
-          <p class="text-gray-300 mb-6">Si representas a una institución educativa o comunitaria y deseas que llevemos nuestros talleres a tu organización, contáctanos para coordinar una visita.</p>
+      <div class="flex-1 max-w-xl" @fadeInSide appInView>
+        <div class="bg-[#232d3b] rounded-xl p-8 shadow-lg border border-gray-700" @scaleIn appInView>
+          <h3 class="text-2xl font-bold mb-4 text-white text-center" @fadeInUp appInView>Solicita un Taller</h3>
+          <p class="text-gray-300 mb-6 text-center" @fadeInUp appInView>Si representas a una institución educativa o comunitaria y deseas que llevemos nuestros talleres a tu organización, contáctanos para coordinar una visita.</p>
           <ul class="space-y-4 mb-8">
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-3" @fadeInUp appInView>
               <i-lucide name="school" class="w-6 h-6 text-[#EEA542] mt-1"></i-lucide>
               <div>
                 <span class="font-bold text-white">Instituciones Educativas</span>
                 <div class="text-gray-400 text-sm">Colegios, universidades, centros de formación</div>
               </div>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-3" @fadeInUp appInView>
               <i-lucide name="users" class="w-6 h-6 text-[#EEA542] mt-1"></i-lucide>
               <div>
                 <span class="font-bold text-white">Organizaciones Comunitarias</span>
                 <div class="text-gray-400 text-sm">Centros comunitarios, ONGs, grupos de padres</div>
               </div>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-3" @fadeInUp appInView>
               <i-lucide name="heart" class="w-6 h-6 text-[#EEA542] mt-1"></i-lucide>
               <div>
                 <span class="font-bold text-white">Empresas</span>
@@ -65,11 +78,9 @@
               </div>
             </li>
           </ul>
-          <button class="w-full bg-white hover:bg-[#d89a2b] text-[#181C23] font-bold py-3 rounded-lg text-lg transition-colors">Solicitar Información</button>
+          <button class="w-full bg-white hover:bg-[#d89a2b] text-[#181C23] font-bold py-3 rounded-lg text-lg transition-colors" @scaleIn appInView>Solicitar Información</button>
         </div>
       </div>
     </div>
-
   </div>
-
 </section>

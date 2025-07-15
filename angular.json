@@ -31,7 +31,8 @@
               "src/assets",
               "src/_redirects",
               "src/sitemap.xml",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/assets/images/favicon.svg"
             ],
             "styles": [
               "src/styles.scss"
