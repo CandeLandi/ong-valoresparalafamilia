@@ -1,25 +1,23 @@
 <header class="sticky top-0 z-50 w-full border-b border-gray-800 bg-black/80 backdrop-blur-lg">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
-      <div class="flex items-center">
-        <img src="assets/images/home/logo.png" alt="ONG Valores para la Familia" class="h-16 w-16 rounded-full bg-white p-1 border-2 border-[#53B8B0] shadow-lg" />
+      <div class="flex items-center ">
+        <img src="assets/images/home/logo.png" alt="ONG Valores para la Familia" class="h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-white border-2 border-[#53B8B0] shadow-lg" />
       </div>
 
-      <!-- Desktop Navigation -->
       <nav class="hidden lg:flex gap-6">
-        <a href="#inicio" (click)="scrollToSection('inicio', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Inicio</a>
-        <a href="#historia" (click)="scrollToSection('historia', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Nuestra Historia</a>
-        <a href="#prevencion" (click)="scrollToSection('prevencion', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Prevención</a>
-        <a href="#valores" (click)="scrollToSection('valores', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Valores</a>
-        <a href="#talleres" (click)="scrollToSection('talleres', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Talleres</a>
-        <a href="#principios" (click)="scrollToSection('principios', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Claves</a>
-        <a href="#donar" (click)="scrollToSection('donar', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Donar</a>
-        <a href="#contacto" (click)="scrollToSection('contacto', $event)" class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">Contacto</a>
+        <a
+          *ngFor="let item of navigationItems"
+          [href]="'#' + item.id"
+          (click)="scrollToSection(item.id, $event)"
+          class="text-sm font-medium text-white hover:text-[#EE5420] transition-colors">
+          {{ item.text }}
+        </a>
       </nav>
 
       <div class="flex items-center gap-2">
         <a href="https://wa.me/5492261400040" target="_blank" rel="noopener" class="hidden sm:inline-flex bg-[#EE5420] hover:bg-[#EE5420]/90 text-sm px-3 py-2 text-white rounded-lg">Donar Ahora</a>
-        <!-- Mobile menu button -->
+
         <button class="lg:hidden border border-gray-700 h-9 w-9 rounded-lg flex items-center justify-center text-white" (click)="toggleMobileMenu()">
           <span class="sr-only">Toggle menu</span>
           <i-lucide *ngIf="mobileMenuOpen" name="x" class="h-5 w-5 text-white"></i-lucide>
@@ -28,23 +26,21 @@
       </div>
     </div>
 
-    <!-- Mobile Navigation -->
     <div *ngIf="mobileMenuOpen" class="lg:hidden fixed inset-0 z-50 flex items-start justify-center bg-black/60">
       <div class="mt-6 w-[90vw] max-w-xs rounded-2xl shadow-2xl bg-gray-900/95 border border-gray-800 backdrop-blur-md p-5 relative">
         <button (click)="closeMobileMenu()" class="absolute top-3 right-3 h-10 w-10 flex items-center justify-center rounded-full border-2 border-[#EE5420] bg-black/80 text-white hover:bg-[#EE5420] hover:text-white transition-colors shadow-lg">
           <i-lucide name="x" class="h-6 w-6"></i-lucide>
         </button>
         <nav class="flex flex-col space-y-2 mt-8">
-          <a href="#inicio" (click)="scrollToSection('inicio', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Inicio</a>
-          <a href="#historia" (click)="scrollToSection('historia', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Nuestra Historia</a>
-          <a href="#prevencion" (click)="scrollToSection('prevencion', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Prevención</a>
-          <a href="#valores" (click)="scrollToSection('valores', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Valores</a>
-          <a href="#talleres" (click)="scrollToSection('talleres', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Talleres</a>
-          <a href="#principios" (click)="scrollToSection('principios', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Claves</a>
-          <a href="#donar" (click)="scrollToSection('donar', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Donar</a>
-          <a href="#contacto" (click)="scrollToSection('contacto', $event); closeMobileMenu()" class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">Contacto</a>
+          <a
+            *ngFor="let item of navigationItems"
+            [href]="'#' + item.id"
+            (click)="scrollToSection(item.id, $event); closeMobileMenu()"
+            class="text-base font-medium text-white hover:text-[#EE5420] transition-colors py-3 rounded-lg px-3">
+            {{ item.text }}
+          </a>
           <a href="https://wa.me/5492261400040" target="_blank" rel="noopener" class="sm:hidden bg-[#EE5420] hover:bg-[#EE5420]/90 text-base mt-4 text-white rounded-xl py-3 px-3 font-bold shadow-lg">Donar Ahora</a>
-      </nav>
+        </nav>
       </div>
     </div>
   </div>
