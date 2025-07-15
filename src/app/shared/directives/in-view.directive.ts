@@ -1,38 +1,30 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appInView]',
-  standalone: true
+  selector: '[appInView]'
 })
-export class InViewDirective implements OnInit {
-  @Input() threshold = 0.1;
-  @Input() rootMargin = '0px';
+export class InViewDirective implements OnInit, OnDestroy {
+  @Input() fadeDirection: 'left' | 'right' = 'left';
+  private observer!: IntersectionObserver;
 
-  private observer: IntersectionObserver | null = null;
-
-  constructor(private element: ElementRef) {}
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.observer = new IntersectionObserver(
-      ([entry]) => {
+    this.setInitialStyle();
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.element.nativeElement.style.opacity = '1';
-          this.element.nativeElement.style.transform = 'none';
-          this.observer?.unobserve(this.element.nativeElement);
+          this.renderer.addClass(this.el.nativeElement, 'in-view');
+          this.observer.disconnect();
         }
-      },
-      {
-        threshold: this.threshold,
-        rootMargin: this.rootMargin
-      }
-    );
+      });
+    }, { threshold: 0.2 });
+    this.observer.observe(this.el.nativeElement);
+  }
 
-    // Establecer estado inicial
-    this.element.nativeElement.style.opacity = '0';
-    this.element.nativeElement.style.transform = 'translateY(20px)';
-    this.element.nativeElement.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-    this.observer.observe(this.element.nativeElement);
+  setInitialStyle() {
+    const x = this.fadeDirection === 'left' ? '-48px' : '48px';
+    this.renderer.setStyle(this.el.nativeElement, '--fade-x', x);
   }
 
   ngOnDestroy() {
