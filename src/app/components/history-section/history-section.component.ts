@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { fadeInSide } from '../../animations/fade-in-side.animation';
 import { LucideAngularModule } from 'lucide-angular';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-history-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, ScrollAnimationDirective],
   templateUrl: './history-section.component.html',
-  styleUrls: ['./history-section.component.scss'],
-  animations: [fadeInSide]
+  styleUrls: ['./history-section.component.scss']
 })
 export class HistorySectionComponent {}

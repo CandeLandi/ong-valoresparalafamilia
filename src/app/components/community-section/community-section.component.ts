@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
-import { fadeInSide } from '../../animations/fade-in-side.animation';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-community-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, ScrollAnimationDirective],
   templateUrl: './community-section.component.html',
-  styleUrls: [],
-  animations: [fadeInSide]
+  styleUrls: []
 })
 export class CommunitySectionComponent {
   campaignCards = [

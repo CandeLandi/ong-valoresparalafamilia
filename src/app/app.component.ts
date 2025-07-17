@@ -11,6 +11,7 @@ import { DonationSectionComponent } from './components/donation-section/donation
 import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 import { PreventionSectionComponent } from './components/prevention-section/prevention-section.component';
 import { FooterSectionComponent } from './components/footer-section/footer-section.component';
+import { ScrollToTopComponent } from './shared/components/scroll-to-top/scroll-to-top.component';
 
 
 @Component({
@@ -28,7 +29,8 @@ import { FooterSectionComponent } from './components/footer-section/footer-secti
     DonationSectionComponent,
     ContactSectionComponent,
     PreventionSectionComponent,
-    FooterSectionComponent
+    FooterSectionComponent,
+    ScrollToTopComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: []

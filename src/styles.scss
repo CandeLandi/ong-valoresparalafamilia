@@ -167,3 +167,15 @@ a:hover {
   background: rgba(10, 10, 20, 0.6); /* Un poco más oscuro */
   z-index: 1;
 }
+
+/* Estilos para favicon redondeado */
+link[rel="icon"],
+link[rel="apple-touch-icon"] {
+  border-radius: 50%;
+}
+
+/* Estilos para hacer que el favicon se vea redondeado en el navegador */
+.favicon-rounded {
+  border-radius: 50% !important;
+  overflow: hidden;
+}

@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
 
-  <!-- SEO Básico -->
   <title>ONG Valores para la Familia - Prevención de Abuso Sexual Infantil | Talleres y Campañas</title>
   <meta name="description" content="ONG dedicada a la prevención del abuso sexual infantil a través de talleres, campañas educativas y concientización. Educamos sin espantar, brindando herramientas de protección para niños y familias.">
   <meta name="keywords" content="prevención abuso sexual infantil, talleres prevención, ONG valores familia, protección infantil, educación sexual infantil, campañas concientización, abuso sexual niños, prevención ASI">
   <meta name="author" content="ONG Valores para la Familia">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://valoresparalafamilia.com/">
   <meta property="og:title" content="ONG Valores para la Familia - Prevención de Abuso Sexual Infantil">
@@ -21,33 +19,26 @@
   <meta property="og:site_name" content="ONG Valores para la Familia">
   <meta property="og:locale" content="es_AR">
 
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://valoresparalafamilia.com/">
   <meta property="twitter:title" content="ONG Valores para la Familia - Prevención de Abuso Sexual Infantil">
   <meta property="twitter:description" content="Trabajamos por la prevención del abuso sexual infantil a través de talleres educativos y campañas de concientización. ¡No te calles, contalo!">
   <meta property="twitter:image" content="https://valoresparalafamilia.com/assets/images/twitter-image.jpg">
 
-  <!-- Configuración adicional -->
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#EE5420">
   <meta name="msapplication-TileColor" content="#EE5420">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo.svg">
 
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://valoresparalafamilia.com/">
 
-  <!-- Preconnect para performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,6 +67,22 @@
     "serviceType": "Prevención de abuso sexual infantil",
     "slogan": "¡No te calles, contalo!"
   }
+  </script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faviconLink = document.querySelector('link[rel="icon"]');
+      if (faviconLink) {
+        faviconLink.classList.add('favicon-rounded');
+      }
+
+      // También aplicar a apple-touch-icon
+      const appleTouchIcon = document.querySelector('link[rel="apple-touch-icon"]');
+      if (appleTouchIcon) {
+        appleTouchIcon.classList.add('favicon-rounded');
+      }
+    });
   </script>
 </head>
 <body>

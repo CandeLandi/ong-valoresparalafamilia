@@ -24,7 +24,9 @@ import {
   Users,
   CheckCircle2,
   School,
-  DollarSign
+  DollarSign,
+  ChevronUp,
+  ArrowUp
 } from 'lucide-angular';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
@@ -54,7 +56,9 @@ export const appConfig: ApplicationConfig = {
       Users,
       CheckCircle2,
       School,
-      DollarSign
+      DollarSign,
+      ChevronUp,
+      ArrowUp
     }))
   ]
 };

@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
-import { fadeInSide } from '../../animations/fade-in-side.animation';
+import { ScrollAnimationDirective } from '../../shared/directives/scroll-animation.directive';
 
 @Component({
   selector: 'app-values-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
-  templateUrl: './values-section.component.html',
-  animations: [fadeInSide]
+  imports: [CommonModule, LucideAngularModule, ScrollAnimationDirective],
+  templateUrl: './values-section.component.html'
 })
 export class ValuesSectionComponent {
   values = [

@@ -1,14 +1,14 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-export const fadeInSide = trigger('fadeInSide', [
+export const scaleIn = trigger('scaleIn', [
   state('void', style({
     opacity: 0,
-    transform: 'translateX(-50px)'
+    transform: 'scale(0.8)'
   })),
   transition(':enter', [
-    animate('800ms ease-out', style({
+    animate('500ms ease-out', style({
       opacity: 1,
-      transform: 'translateX(0)'
+      transform: 'scale(1)'
     }))
   ])
 ]);

@@ -15,10 +15,12 @@ export class InViewDirective implements OnInit, OnDestroy {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           this.renderer.addClass(this.el.nativeElement, 'in-view');
+          // Trigger animation by adding a data attribute
+          this.renderer.setAttribute(this.el.nativeElement, 'data-animate', 'true');
           this.observer.disconnect();
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
     this.observer.observe(this.el.nativeElement);
   }
 

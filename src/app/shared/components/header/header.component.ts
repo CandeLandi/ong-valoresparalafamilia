@@ -23,13 +23,13 @@ export class HeaderComponent {
 
   navigationItems: NavigationItem[] = [
     { id: 'inicio', text: 'Inicio' },
-    { id: 'historia', text: 'Nuestra Historia' },
+
     { id: 'prevencion', text: 'Prevención' },
-    { id: 'valores', text: 'Valores' },
-    { id: 'talleres', text: 'Talleres' },
     { id: 'principios', text: 'Claves' },
+    { id: 'talleres', text: 'Talleres' },
+    { id: 'valores', text: 'Valores' },
+    { id: 'contacto', text: 'Contacto' },
     { id: 'donar', text: 'Donar' },
-    { id: 'contacto', text: 'Contacto' }
   ];
 
   toggleMobileMenu(): void {
