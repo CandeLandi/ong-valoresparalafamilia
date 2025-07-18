@@ -1,15 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule } from 'lucide-angular';
-import { fadeInSide } from '../../animations/fade-in-side.animation';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-events-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
-  templateUrl: './events-section.component.html',
-  styleUrls: [],
-  animations: [fadeInSide]
+  imports: [CommonModule, MatIconModule],
+  templateUrl: './events-section.component.html'
 })
 export class EventsSectionComponent implements OnInit, OnDestroy {
   cities = [
@@ -38,119 +35,34 @@ export class EventsSectionComponent implements OnInit, OnDestroy {
     { src: 'assets/images/talleres/work.jpeg', alt: 'Trabajo en equipo' }
   ];
 
-  campaignCards = [
-    {
-      icon: 'heart',
-      title: 'DISFRUTA',
-      description: 'Actividades lúdicas y educativas'
-    },
-    {
-      icon: 'message-square',
-      title: 'CONVERSA',
-      description: 'Diálogo abierto y confianza'
-    },
-    {
-      icon: 'book-open',
-      title: 'APRENDE',
-      description: 'Herramientas de autoprotección'
-    },
-    {
-      icon: 'users',
-      title: 'COMPARTE',
-      description: 'Difunde el mensaje de prevención'
-    }
-  ];
-
-  currentImage = 0;
-  intervalId: any;
-  isTransitioning = false;
-
-  visibleCount = 5; // Cambié de 3 a 5 para mostrar todas las imágenes claras
-  partialVisible = 0; // Cambié de 1 a 0 para no mostrar imágenes borrosas
-
-  get visibleImages() {
-    const total = this.galleryImages.length;
-    const result = [];
-    for (let i = 0; i < this.visibleCount; i++) {
-      let idx = (this.currentImage + i) % total;
-      result.push({ ...this.galleryImages[idx], partial: false }); // Todas las imágenes se muestran claras
-    }
-    return result;
-  }
-
-  get carouselIndicators() {
-    return Array(Math.ceil(this.galleryImages.length / this.visibleCount));
-  }
-
-  // Método para trackear imágenes y optimizar rendimiento
-  trackByImage(index: number, item: any): string {
-    return item.src;
-  }
-
-  // Método para obtener clases CSS de las imágenes
-  getImageClasses(index: number): string {
-    return 'opacity-100 scale-100'; // Todas las imágenes se muestran claras
-  }
-
-  // Método para obtener transformaciones de las imágenes
-  getImageTransform(index: number): string {
-    return 'scale(1)'; // Todas las imágenes en escala normal
-  }
-
-  // Método para obtener z-index de las imágenes
-  getImageZIndex(index: number): number {
-    return 10; // Todas las imágenes con el mismo z-index
-  }
+  currentIndex = 0;
+  interval: any;
 
   ngOnInit() {
     this.startAutoSlide();
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalId);
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.galleryImages.length;
+  }
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.galleryImages.length) % this.galleryImages.length;
+  }
+
+  goTo(index: number) {
+    this.currentIndex = index;
   }
 
   startAutoSlide() {
-    this.intervalId = setInterval(() => {
-      if (!this.isTransitioning) {
-        this.nextImage();
-      }
-    }, 4000); // Aumenté el tiempo entre transiciones
-  }
-
-  nextImage() {
-    if (this.isTransitioning) return;
-
-    this.isTransitioning = true;
-    this.currentImage = (this.currentImage + 1) % this.galleryImages.length;
-
-    // Resetear el estado de transición después de la animación
-    setTimeout(() => {
-      this.isTransitioning = false;
-    }, 700);
-  }
-
-  prevImage() {
-    if (this.isTransitioning || this.currentImage === 0) return;
-
-    this.isTransitioning = true;
-    this.currentImage = (this.currentImage - 1 + this.galleryImages.length) % this.galleryImages.length;
-
-    // Resetear el estado de transición después de la animación
-    setTimeout(() => {
-      this.isTransitioning = false;
-    }, 700);
-  }
-
-  goToImage(index: number) {
-    if (this.isTransitioning) return;
-
-    this.isTransitioning = true;
-    this.currentImage = index;
-
-    // Resetear el estado de transición después de la animación
-    setTimeout(() => {
-      this.isTransitioning = false;
-    }, 700);
+    this.interval = setInterval(() => {
+      this.next();
+    }, 1000);
   }
 }

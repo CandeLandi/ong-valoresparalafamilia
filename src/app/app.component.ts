@@ -99,20 +99,20 @@ export class AppComponent implements OnInit {
       (scrollButton as HTMLElement).style.right = '1rem';
     }
 
-    // Prevenir scroll horizontal en elementos con hover scale
+    // Prevenir scroll horizontal en elementos con hover scale (excluyendo botones de redes sociales)
     const hoverScaleElements = document.querySelectorAll('[class*="hover:scale"]');
     hoverScaleElements.forEach((element: any) => {
-      if (element.style) {
+      if (element.style && !element.classList.contains('w-12')) {
         element.style.overflowX = 'hidden';
         element.style.maxWidth = '100%';
         element.style.contain = 'layout style paint';
       }
     });
 
-    // Prevenir scroll horizontal en elementos con transform
+    // Prevenir scroll horizontal en elementos con transform (excluyendo botones de redes sociales)
     const transformElements = document.querySelectorAll('[style*="transform"]');
     transformElements.forEach((element: any) => {
-      if (element.style) {
+      if (element.style && !element.classList.contains('w-12')) {
         element.style.overflowX = 'hidden';
         element.style.maxWidth = '100%';
         element.style.width = '100%';

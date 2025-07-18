@@ -132,7 +132,6 @@ a:hover {
   border-color: var(--primary);
 }
 
-/* Estilos de contenedores */
 .container {
   width: 100%;
   max-width: 1440px;
@@ -178,3 +177,6 @@ link[rel="apple-touch-icon"] {
   border-radius: 50% !important;
   overflow: hidden;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
