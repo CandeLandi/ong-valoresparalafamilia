@@ -1,8 +1,8 @@
 <section id="contacto" class="mx-auto bg-[#181C23] py-16 sm:py-20 lg:py-24">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center max-w-6xl mx-auto">
       <!-- Columna izquierda: Información de contacto -->
-      <div class="flex-1 max-w-lg text-start" scrollAnimation animationType="fadeLeft">
+      <div class="w-full lg:w-1/2 max-w-lg text-start" scrollAnimation animationType="fadeLeft">
         <div class="mb-8">
           <h3 class="text-xl font-bold mb-6 text-[#EEA542]" scrollAnimation animationType="fadeUp" [delay]="100">Información de Contacto</h3>
           <ul class="space-y-4">
@@ -33,19 +33,18 @@
         <div scrollAnimation animationType="fadeUp" [delay]="500">
           <h3 class="text-xl font-bold mb-4 text-[#EEA542]">Seguinos en nuestras redes</h3>
           <div class="flex flex-row gap-4 items-center justify-start">
-            <a href="https://www.facebook.com/profile.php?id=100065310617288" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2" scrollAnimation animationType="scale" [delay]="600">
-              <i-lucide name="facebook" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
+            <a href="https://www.facebook.com/profile.php?id=100065310617288" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full w-12 h-12 flex items-center justify-center hover:bg-[#EEA542] transition-all duration-300 shadow-lg" scrollAnimation animationType="scale" [delay]="600">
+              <i-lucide name="facebook" class="w-6 h-6 text-white group-hover:text-white transition-colors"></i-lucide>
             </a>
-            <a href="https://instagram.com/valoresparalafamilia" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full p-2" scrollAnimation animationType="scale" [delay]="700">
-              <i-lucide name="instagram" class="w-6 h-6 text-white group-hover:text-[#EEA542] transition-colors"></i-lucide>
+            <a href="https://instagram.com/valoresparalafamilia" target="_blank" rel="noopener" class="group bg-[#232834] rounded-full w-12 h-12 flex items-center justify-center hover:bg-[#EEA542] transition-all duration-300 shadow-lg" scrollAnimation animationType="scale" [delay]="700">
+              <i-lucide name="instagram" class="w-6 h-6 text-white group-hover:text-white transition-colors"></i-lucide>
             </a>
-            <span class="ml-2 bg-[#232834] text-[#53B8B0] px-4 py-2 rounded-full font-semibold text-xs sm:text-sm" scrollAnimation animationType="scale" [delay]="800">&#64;valoresparalafamilia</span>
           </div>
         </div>
       </div>
 
       <!-- Columna derecha: Solicitar Taller -->
-      <div class="flex-1 max-w-xl" scrollAnimation animationType="fadeRight">
+      <div class="w-full lg:w-1/2 max-w-xl" scrollAnimation animationType="fadeRight">
         <div class="bg-[#232d3b] rounded-xl p-8 shadow-lg border border-gray-700" scrollAnimation animationType="scale" [delay]="200">
           <h3 class="text-2xl font-bold mb-4 text-white text-center" scrollAnimation animationType="fadeUp" [delay]="300">Solicita un Taller</h3>
           <p class="text-gray-300 mb-6 text-center" scrollAnimation animationType="fadeUp" [delay]="400">Si representas a una institución educativa o comunitaria y deseas que llevemos nuestros talleres a tu organización, contáctanos para coordinar una visita.</p>

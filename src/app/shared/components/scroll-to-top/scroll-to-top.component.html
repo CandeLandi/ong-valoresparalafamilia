@@ -1,0 +1,10 @@
+<button
+*ngIf="showScrollButton"
+(click)="scrollToTop()"
+class="fixed bottom-4 right-4 z-40 bg-[#EEA542] hover:bg-[#d8943a] text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden"
+[class.opacity-0]="!showScrollButton"
+[class.opacity-100]="showScrollButton"
+style="max-width: 100vw; right: 1rem;"
+>
+<i-lucide name="arrow-up" class="w-5 h-5"></i-lucide>
+</button>

@@ -25,8 +25,11 @@ export class InViewDirective implements OnInit, OnDestroy {
   }
 
   setInitialStyle() {
-    const x = this.fadeDirection === 'left' ? '-48px' : '48px';
+    const x = this.fadeDirection === 'left' ? '-20px' : '20px';
     this.renderer.setStyle(this.el.nativeElement, '--fade-x', x);
+    this.renderer.setStyle(this.el.nativeElement, 'overflow', 'hidden');
+    this.renderer.setStyle(this.el.nativeElement, 'max-width', '100%');
+    this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
   }
 
   ngOnDestroy() {

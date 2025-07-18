@@ -1,12 +1,13 @@
-  <section
-    scrollAnimation
-    animationType="fadeRight"
-    class="py-16 sm:py-20 lg:py-24 bg-[#181C23]"
-  >
+<section
+  scrollAnimation
+  animationType="fadeRight"
+  class="h-[90vh] bg-[#181C23] flex items-center"
+>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8">NUESTRA HISTORIA</h2>
-    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-      <div class="w-full lg:w-1/2">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center max-w-6xl mx-auto">
+      <!-- Columna izquierda: Nuestra Historia -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-8">NUESTRA HISTORIA</h2>
         <div class="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
           <p>
             La ONG Valores para la Familia nace ante la necesidad de llevar a las familias capacitaciones para
@@ -24,7 +25,7 @@
           </p>
         </div>
         <!-- Redes sociales -->
-        <div class="flex justify-center gap-6 mt-8">
+        <div class="flex justify-start gap-6 mt-8">
           <a href="https://instagram.com/valoresparalafamilia" target="_blank" rel="noopener" class="group">
             <i-lucide name="instagram" class="w-7 h-7 text-gray-400 group-hover:text-[#EEA542] transition-colors"></i-lucide>
           </a>
@@ -33,8 +34,10 @@
           </a>
         </div>
       </div>
-      <div class="w-full lg:w-1/2 flex justify-center">
-        <div class="relative rounded-lg overflow-hidden shadow-xl shadow-[#53B8B0]/20 max-w-md">
+
+      <!-- Columna derecha: Imagen -->
+      <div class="w-full lg:w-1/2 flex items-center justify-center">
+        <div class="relative rounded-lg overflow-hidden shadow-xl shadow-[#53B8B0]/20 max-w-md w-full">
           <div class="absolute inset-0 bg-gradient-to-br from-[#53B8B0]/20 to-gray-900/20 z-10"></div>
           <img
             src="assets/images/we/we.jpeg"

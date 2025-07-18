@@ -2,38 +2,71 @@
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8">Nuestros talleres de prevención</h2>
     <p class="text-base sm:text-lg text-gray-300 mb-8 text-center">Espacios interactivos para aprender, prevenir y fortalecer la protección de niños, niñas y adolescentes</p>
-    <div class="w-full max-w-6xl mx-auto flex flex-col gap-6 mb-12">
-      <!-- Carrusel de imágenes -->
-      <div class="relative w-full flex items-center justify-center">
-        <button (click)="prevImage()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-[#232834] bg-opacity-90 rounded-full p-2 text-white hover:bg-[#EEA542] transition-colors z-10 shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#EEA542" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+
+    <div class="w-full max-w-6xl mx-auto flex flex-col gap-6 mb-12 overflow-hidden">
+      <!-- Galería mejorada -->
+      <div class="relative w-full flex items-center justify-center overflow-hidden gallery-container">
+        <!-- Botón anterior -->
+        <button
+          (click)="prevImage()"
+          class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-[#EEA542] text-white rounded-full p-3 transition-all duration-300 z-10 shadow-lg backdrop-blur-sm border border-white/20 hover:scale-110 overflow-hidden gallery-nav-button"
+          [class.opacity-50]="currentImage === 0"
+          [class.cursor-not-allowed]="currentImage === 0"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
-        <div class="flex w-full justify-center items-center gap-4 overflow-x-hidden select-none">
-          <img
-            *ngFor="let img of visibleImages; index as i"
-            [src]="img.src"
-            [alt]="img.alt"
-            [ngClass]="img.partial ? 'opacity-40 scale-90 blur-[2px]' : 'opacity-100 scale-100 shadow-lg'"
-            class="rounded-lg object-cover border border-[#EEA542] bg-[#232834] transition-all duration-500 w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56"
-          />
+
+        <!-- Contenedor de imágenes con transiciones suaves -->
+        <div class="flex w-full justify-center items-center gap-3 sm:gap-4 overflow-hidden select-none max-w-full px-16 sm:px-20">
+          <div
+            *ngFor="let img of visibleImages; index as i; trackBy: trackByImage"
+            class="relative transition-all duration-700 ease-out overflow-hidden rounded-xl gallery-image"
+            [ngClass]="getImageClasses(i)"
+            [style.transform]="getImageTransform(i)"
+            [style.z-index]="getImageZIndex(i)"
+          >
+            <!-- Contenedor con tamaño fijo para todas las imágenes -->
+            <div class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-[#232834] rounded-xl border-2 border-[#EEA542]/30 shadow-lg overflow-hidden">
+              <img
+                [src]="img.src"
+                [alt]="img.alt"
+                class="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
+            <!-- Overlay con información -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-end gallery-overlay pointer-events-none">
+              <div class="p-3 text-white text-xs sm:text-sm">
+                <p class="font-semibold">{{ img.alt }}</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <button (click)="nextImage()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#232834] bg-opacity-90 rounded-full p-2 text-white hover:bg-[#EEA542] transition-colors z-10 shadow-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#EEA542" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+
+        <!-- Botón siguiente -->
+        <button
+          (click)="nextImage()"
+          class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-[#EEA542] text-white rounded-full p-3 transition-all duration-300 z-10 shadow-lg backdrop-blur-sm border border-white/20 hover:scale-110 overflow-hidden gallery-nav-button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
         </button>
-      </div>
-      <!-- Indicadores del carrusel -->
-      <div class="flex justify-center mt-6 gap-2">
-        <button *ngFor="let _ of carouselIndicators; let i = index"
-          (click)="goToImage(i * 4)"
-          [ngClass]="currentImage >= i * 4 && currentImage < (i + 1) * 4 ? 'bg-white' : 'bg-gray-600'"
-          class="w-2 h-2 rounded-full transition-colors"></button>
       </div>
     </div>
+
     <!-- Ciudades visitadas -->
-    <div class="max-w-4xl mx-auto text-center mb-12">
+    <div class="max-w-4xl mx-auto text-center mb-12 overflow-hidden">
       <h3 class="text-xl font-semibold mb-8 text-white">Ciudades que hemos visitado</h3>
-      <div class="flex flex-wrap justify-center gap-3">
-        <span *ngFor="let city of cities" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors">{{ city }}</span>
+      <div class="flex flex-wrap justify-center gap-3 overflow-hidden">
+        <span
+          *ngFor="let city of cities"
+          class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-[#EEA542] hover:text-white transition-all duration-300 hover:scale-105 cursor-pointer city-tag"
+        >
+          {{ city }}
+        </span>
       </div>
     </div>
   </div>

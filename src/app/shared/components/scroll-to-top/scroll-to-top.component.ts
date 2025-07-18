@@ -6,18 +6,29 @@ import { LucideAngularModule } from 'lucide-angular';
   selector: 'app-scroll-to-top',
   standalone: true,
   imports: [CommonModule, LucideAngularModule],
-  template: `
-    <button
-      *ngIf="showScrollButton"
-      (click)="scrollToTop()"
-      class="fixed bottom-4 right-4 z-40 bg-[#EEA542] hover:bg-[#d8943a] text-white p-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
-      [class.opacity-0]="!showScrollButton"
-      [class.opacity-100]="showScrollButton"
-    >
-      <i-lucide name="arrow-up" class="w-5 h-5"></i-lucide>
-    </button>
-  `,
-  styles: []
+  templateUrl: './scroll-to-top.component.html',
+  styles: [`
+    :host {
+      overflow: hidden !important;
+      max-width: 100vw !important;
+      position: fixed !important;
+      right: 1rem !important;
+      bottom: 1rem !important;
+      z-index: 40 !important;
+    }
+
+    button {
+      overflow: hidden !important;
+      max-width: 100vw !important;
+      contain: layout style paint !important;
+    }
+
+    button:hover {
+      overflow: hidden !important;
+      max-width: 100vw !important;
+      transform: scale(1.05) !important;
+    }
+  `]
 })
 export class ScrollToTopComponent {
   showScrollButton = false;
@@ -25,6 +36,10 @@ export class ScrollToTopComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.showScrollButton = window.scrollY > 300;
+    // Prevenir scroll horizontal
+    if (window.scrollX !== 0) {
+      window.scrollTo(0, window.scrollY);
+    }
   }
 
   scrollToTop() {

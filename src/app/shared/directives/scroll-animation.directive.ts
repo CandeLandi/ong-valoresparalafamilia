@@ -35,19 +35,22 @@ export class ScrollAnimationDirective implements OnInit, OnDestroy {
     const transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     this.renderer.setStyle(this.el.nativeElement, 'transition', transition);
     this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
+    this.renderer.setStyle(this.el.nativeElement, 'overflow', 'hidden');
+    this.renderer.setStyle(this.el.nativeElement, 'max-width', '100%');
+    this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
 
     switch (this.animationType) {
       case 'fadeUp':
-        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateY(30px)');
+        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateY(20px)');
         break;
       case 'fadeLeft':
-        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateX(-50px)');
+        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateX(-20px)');
         break;
       case 'fadeRight':
-        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateX(50px)');
+        this.renderer.setStyle(this.el.nativeElement, 'transform', 'translateX(20px)');
         break;
       case 'scale':
-        this.renderer.setStyle(this.el.nativeElement, 'transform', 'scale(0.8)');
+        this.renderer.setStyle(this.el.nativeElement, 'transform', 'scale(0.95)');
         break;
     }
   }
