@@ -80,43 +80,5 @@ export class AppComponent implements OnInit {
     if (window.scrollX !== 0) {
       window.scrollTo(0, window.scrollY);
     }
-
-    // Prevenir scroll horizontal en elementos fixed
-    const fixedElements = document.querySelectorAll('[style*="position: fixed"], .fixed');
-    fixedElements.forEach((element: any) => {
-      if (element.style) {
-        element.style.overflowX = 'hidden';
-        element.style.maxWidth = '100vw';
-        element.style.right = '1rem';
-      }
-    });
-
-    // Prevenir scroll horizontal en el botón scroll-to-top específicamente
-    const scrollButton = document.querySelector('app-scroll-to-top button');
-    if (scrollButton) {
-      (scrollButton as HTMLElement).style.overflowX = 'hidden';
-      (scrollButton as HTMLElement).style.maxWidth = '100vw';
-      (scrollButton as HTMLElement).style.right = '1rem';
-    }
-
-    // Prevenir scroll horizontal en elementos con hover scale (excluyendo botones de redes sociales)
-    const hoverScaleElements = document.querySelectorAll('[class*="hover:scale"]');
-    hoverScaleElements.forEach((element: any) => {
-      if (element.style && !element.classList.contains('w-12')) {
-        element.style.overflowX = 'hidden';
-        element.style.maxWidth = '100%';
-        element.style.contain = 'layout style paint';
-      }
-    });
-
-    // Prevenir scroll horizontal en elementos con transform (excluyendo botones de redes sociales)
-    const transformElements = document.querySelectorAll('[style*="transform"]');
-    transformElements.forEach((element: any) => {
-      if (element.style && !element.classList.contains('w-12')) {
-        element.style.overflowX = 'hidden';
-        element.style.maxWidth = '100%';
-        element.style.width = '100%';
-      }
-    });
   }
 }
