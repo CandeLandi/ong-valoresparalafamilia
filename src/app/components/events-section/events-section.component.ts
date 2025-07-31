@@ -28,13 +28,11 @@ export class EventsSectionComponent implements OnInit, OnDestroy {
     { src: 'assets/images/talleres/ninos.jpeg', alt: 'Taller con niños' },
     { src: 'assets/images/talleres/reunion.jpeg', alt: 'Reunión de equipo' },
     { src: 'assets/images/talleres/taller-aire.jpeg', alt: 'Taller al aire libre' },
-    { src: 'assets/images/talleres/taller.jpeg', alt: 'Taller educativo' },
     { src: 'assets/images/talleres/brochure.jpeg', alt: 'Folletos institucionales' },
-    { src: 'assets/images/talleres/childs.jpeg', alt: 'Niños participando' },
-    { src: 'assets/images/talleres/sign.jpeg', alt: 'Cartel de prevención' },
-    { src: 'assets/images/talleres/work.jpeg', alt: 'Trabajo en equipo' }
+
   ];
 
+  showAllImages = false;
   currentIndex = 0;
   interval: any;
 
@@ -46,6 +44,10 @@ export class EventsSectionComponent implements OnInit, OnDestroy {
     if (this.interval) {
       clearInterval(this.interval);
     }
+  }
+
+  toggleShowAllImages() {
+    this.showAllImages = !this.showAllImages;
   }
 
   next() {

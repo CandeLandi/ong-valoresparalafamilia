@@ -1,58 +1,46 @@
-<section id="talleres" class="py-16 bg-[#181C23] scroll-mt-24">
+<section id="talleres" class="py-16 sm:py-20 lg:py-24 bg-[#181C23] scroll-mt-24">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8">Nuestros talleres de prevención</h2>
     <p class="text-base sm:text-lg text-gray-300 mb-8 text-center">Espacios interactivos para aprender, prevenir y fortalecer la protección de niños, niñas y adolescentes</p>
 
-    <!-- Carrusel súper simple -->
-    <div class="max-w-4xl mx-auto mb-12">
-      <div class="relative">
-        <!-- Imagen actual -->
-        <div class="relative overflow-hidden rounded-lg">
-          <img
-            [src]="galleryImages[currentIndex].src"
-            [alt]="galleryImages[currentIndex].alt"
-            class="w-full h-64 sm:h-80 md:h-96 object-cover"
-          />
-          <div class="absolute inset-0 bg-black/20"></div>
-        </div>
-
-        <!-- Botones de navegación -->
-        <button
-          (click)="prev()"
-          class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-[#EEA542] text-white rounded-full p-2 transition-all duration-300"
-        >
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-
-        <button
-          (click)="next()"
-          class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-[#EEA542] text-white rounded-full p-2 transition-all duration-300"
-        >
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-
-        <!-- Indicadores -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-          <button
-            *ngFor="let image of galleryImages; let i = index"
-            (click)="goTo(i)"
-            class="w-2 h-2 rounded-full transition-all duration-300"
-            [class]="i === currentIndex ? 'bg-[#EEA542]' : 'bg-white/50 hover:bg-white/70'"
-          ></button>
-        </div>
+    <div class="max-w-6xl mx-auto mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        @for (image of galleryImages.slice(0, showAllImages ? galleryImages.length : 4); track image.src) {
+          <div class="relative overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+        }
       </div>
+
+      @if (galleryImages.length > 4) {
+        <div class="flex justify-center mt-8">
+          <button
+            (click)="toggleShowAllImages()"
+            class="text-[#EEA542] hover:text-[#EEA542]/90 px-8 py-3 rounded-lg font-semibold transition-colors flex flex-col items-center gap-2"
+          >
+            <span>{{ showAllImages ? 'Ver menos imágenes' : 'Ver más imágenes' }}</span>
+            <mat-icon class="w-5 h-5">
+              {{ showAllImages ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+            </mat-icon>
+          </button>
+        </div>
+      }
     </div>
 
-    <!-- Ciudades visitadas -->
-    <div class="max-w-4xl mx-auto text-center mb-12">
+    <div class="max-w-6xl mx-auto text-center mb-12">
       <h3 class="text-xl sm:text-2xl font-semibold mb-8 text-white">Ciudades que hemos visitado</h3>
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
-        <span
-          *ngFor="let city of cities"
-          class="px-3 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-[#EEA542] hover:text-white transition-all duration-300 cursor-pointer"
-        >
-          {{ city }}
-        </span>
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+        @for (city of cities; track city) {
+          <div class="flex flex-col items-center gap-2">
+            <mat-icon class="text-[#EEA542] w-6 h-6">location_on</mat-icon>
+            <span class="text-gray-300 text-sm font-medium">{{ city }}</span>
+          </div>
+        }
       </div>
     </div>
   </div>
