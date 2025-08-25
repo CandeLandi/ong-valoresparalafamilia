@@ -1,10 +1,10 @@
-<section id="talleres" class="py-16 sm:py-20 lg:py-24 bg-[#181C23] scroll-mt-24">
+<section id="talleres" class="min-h-screen py-16 sm:py-20 lg:py-24 bg-[#181C23] scroll-mt-24 flex items-center">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-8">Nuestros talleres de prevención</h2>
     <p class="text-base sm:text-lg text-gray-300 mb-8 text-center">Espacios interactivos para aprender, prevenir y fortalecer la protección de niños, niñas y adolescentes</p>
 
     <div class="max-w-6xl mx-auto mb-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         @for (image of galleryImages.slice(0, showAllImages ? galleryImages.length : 4); track image.src) {
           <div class="relative overflow-hidden rounded-lg aspect-[4/3]">
             <img
@@ -18,7 +18,7 @@
       </div>
 
       @if (galleryImages.length > 4) {
-        <div class="flex justify-center mt-8">
+        <div class="flex justify-center mt-12">
           <button
             (click)="toggleShowAllImages()"
             class="text-[#EEA542] hover:text-[#EEA542]/90 px-8 py-3 rounded-lg font-semibold transition-colors flex flex-col items-center gap-2"
@@ -32,9 +32,9 @@
       }
     </div>
 
-    <div class="max-w-6xl mx-auto text-center mb-12">
+    <div class="max-w-6xl mx-auto text-center mb-16">
       <h3 class="text-xl sm:text-2xl font-semibold mb-8 text-white">Ciudades que hemos visitado</h3>
-      <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+      <div class="flex flex-wrap justify-center gap-8">
         @for (city of cities; track city) {
           <div class="flex flex-col items-center gap-2">
             <mat-icon class="text-[#EEA542] w-6 h-6">location_on</mat-icon>
